@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-
-export function Messages() {
-    let [message, setMessage] = useState ( [
-        {message:'Hello'},
-        {message:'That is'},
-        {message:'My first input entry'}
-    ]
-    )
+type MessagesPropsType = {
+    newmessages: Array<string>
+}
+export function Messages(props: MessagesPropsType) {
+    console.log(props.newmessages)
     return (
         <>
-        {message.map((el,i)=><div key={i}>{el.message}</div>) }
+        {props.newmessages.map((el,i)=><div key={i}>{el}</div>) }
         </>
     )
 }

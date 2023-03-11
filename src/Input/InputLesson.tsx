@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { Input } from './Components/Input';
 import { Messages } from './Components/Messages';
-
+// export type MessageStateType = string
 export function InputLesson() {
-    let [message, setMessage] = useState ( [
-        {message:'Hello'},
-        {message:'That is'},
-        {message:'My first inpyt entry'}
+    let [messages, setMessage] = useState ( [
+        'Hello',
+        'That is',
+        'My first input entry'
     ]
     )
+    const onClickHandler=(mess: string) => {
+        let newarr=[mess,...messages]
+        setMessage(newarr)
+    }
     return (
         <>
-        <Input />
-        <Messages />
+        <Input onClickAdd={onClickHandler}/>
+        <Messages newmessages={messages}/>
         </>
     )
 }
