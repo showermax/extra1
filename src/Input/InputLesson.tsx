@@ -9,13 +9,12 @@ export function InputLesson() {
         'My first input entry'
     ]
     )
-    const onClickHandler=(mess: string) => {
-        let newarr=[mess,...messages]
-        setMessage(newarr)
+    const AddMessage=(mess: string) => {
+        setMessage([mess,...messages])
     }
     return (
         <>
-        <Input onClickAdd={onClickHandler}/>
+        <Input onClickAdd={AddMessage}/>
         <Messages newmessages={messages}/>
         </>
     )
