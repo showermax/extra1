@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Input } from './Components/Input';
+import { Messages } from './Components/Messages';
 
 export function InputLesson() {
     let [message, setMessage] = useState ( [
@@ -11,7 +13,6 @@ export function InputLesson() {
         <>
         <Input />
         <Messages />
-        
         </>
     )
 }
