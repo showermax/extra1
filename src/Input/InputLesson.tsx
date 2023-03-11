@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
+import { Button } from './Components/Button';
 import { Input } from './Components/Input';
+import { Input0 } from './Components/Input0';
 import { Messages } from './Components/Messages';
-// export type MessageStateType = string
+
 export function InputLesson() {
-    let [messages, setMessage] = useState ( [
+    let [mess, setMess] = useState('')
+
+    let [messages, setMessage] = useState([
         'Hello',
         'That is',
         'My first input entry'
     ]
     )
-    const AddMessage=(mess: string) => {
-        setMessage([mess,...messages])
+    
+    const AddMessage = () => {
+        setMessage([mess, ...messages])
+        setMess('')
     }
+    
     return (
         <>
-        <Input onClickAdd={AddMessage}/>
-        <Messages newmessages={messages}/>
+            <div>
+                <Input0 setMessprops={setMess} messprops={mess} />
+                <Button onClickAdd={AddMessage} name='Add' />
+            </div>
+            <Messages newmessages={messages} />
+            <Input onClickAdd={AddMessage} />
+            <Messages newmessages={messages} />
         </>
     )
 }
